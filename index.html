@@ -23,15 +23,31 @@
             padding: 0;
         }
 
+        /* บังคับให้ Swal Container ครอบคลุมทั้งหน้าจอ */
+        .my-swal-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 99999 !important;
+        }
+        
+        /* ปรับปรุง Body เพื่อรองรับ Mobile Browser ได้ดีขึ้น */
         body {
             font-family: 'Kanit', sans-serif;
             background-color: #fdfbf7;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 100vh; /* สำหรับ Browser ทั่วไป */
+            min-height: -webkit-fill-available; /* สำหรับ Safari iOS */
             width: 100%; 
+            margin: 0;
             padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        html {
+            height: -webkit-fill-available;
         }
 
         .bg-shape {
