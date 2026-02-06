@@ -207,6 +207,14 @@
             }
         }
 
+        // ส่วนที่แก้ปัญหาการค้างเมื่อกดย้อนกลับ
+        window.addEventListener('pageshow', function(event) {
+            // event.persisted จะเป็น true ถ้าหน้าเว็บถูกโหลดจาก Cache (เช่นการกดย้อนกลับ)
+            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                Swal.close();
+            }
+        });
+
         document.getElementById('login-btn').addEventListener('click', function(e) {
             e.preventDefault(); 
             var targetUrl = this.href;
